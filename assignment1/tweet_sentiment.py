@@ -1,7 +1,8 @@
 import sys
 
 def hw():
-    print 'Hello, world!'
+    words = {}
+
 
 def lines(fp):
     print str(len(fp.readlines()))

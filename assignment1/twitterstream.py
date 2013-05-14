@@ -1,17 +1,14 @@
 import oauth2 as oauth
 import urllib2 as urllib
+import yaml
 
-# See Assignment 1 instructions or README for how to get these credentials
-access_token_key = "<Enter your access token key here>"
-access_token_secret = "<Enter your access token secret here>"
-
-consumer_key = "<Enter consumer key>"
-consumer_secret = "<Enter consumer secret>"
+with open('params.yml', 'r') as f:
+	params = yaml.load(f)
 
 _debug = 0
 
-oauth_token    = oauth.Token(key=access_token_key, secret=access_token_secret)
-oauth_consumer = oauth.Consumer(key=consumer_key, secret=consumer_secret)
+oauth_token    = oauth.Token(key=params['access_token_key'], secret=params['access_token_secret'])
+oauth_consumer = oauth.Consumer(key=params['consumer_key'], secret=params['consumer_secret'])
 
 signature_method_hmac_sha1 = oauth.SignatureMethod_HMAC_SHA1()
 
